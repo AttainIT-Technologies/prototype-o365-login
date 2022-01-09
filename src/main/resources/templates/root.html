@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" class="h-100" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>AttainIT Technologies prototype-o365-login</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+<h1>Hello from AttainIT Technologies @ <span th:text="${currentdt}" style="color: red"></span></h1>
+
+<h3 style="color: #003867">AzureAD Authorities</h3>
+<ul>
+    <li th:each="authority : ${#authentication.getAuthorities()}"
+        th:text="${authority.getAuthority()}">
+    </li>
+</ul>
+
+<h3 style="color: #003867">Authorization Token Properties</h3>
+<ul>
+    <li><span th:remove="tag" th:text="'name: ' + ${name}"></span></li>
+    <li><span th:remove="tag" th:text="'unique id (oid): ' + ${oid}"></span></li>
+</ul>
+
+<h3 style="color: #003867">Thymeleaf Security Authorization Tags</h3>
+<ul>
+    <li><div th:remove="tag" sec:authorize="isAuthenticated()">User is authenticated</div></li>
+    <li><span th:remove="tag" sec:authorize="hasAuthority('APPROLE_ADMINISTRATOR')">User has APPROLE_ADMINISTRATOR</span></li>
+    <li>Username: <span th:remove="tag" sec:authentication="name"></span></li>
+    <li>Authorities: <span th:remove="tag" sec:authentication="principal.authorities"></span></li>
+</ul>
+
+</body>
+</html>
