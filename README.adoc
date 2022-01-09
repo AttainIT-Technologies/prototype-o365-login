@@ -1,0 +1,38 @@
+:toc:
+
+This README is an overview of an AttainIT Technologies prototype for demonstrating Spring Boot authentication
+integration with Microsoft 365 (formerly known as Office 365).  This prototype is discussed in a series of articles
+on the https://blog.attainittech.com[AttainIT Technologies Blog], with the first article found here
+https://blog.attainittech.com/2022/01/spring-boot-authentication-with-microsoft-365.
+
+== Overview
+
+This prototype demonstrates integrating Spring Security authentication with Microsoft 365 (Azure AD).
+It is a simple web appplication (currently one page only) accessed by an authentication against an existing
+Microsoft 365 subscription/domain. Once logged in, the root page will show several properties about the
+authenticated user.
+
+This application is designed to be run only from a developers workstation.  To run
+this application securely from behind a DNS address, additional configuration
+would needed.  Specifically, additional redirect URIs must be created within Azure AD.
+
+== Developer Workstation Notes
+
+There is one properties file missing from this GitHub repository due to security concerns.  It is explicitly
+referenced in the .gitignore file to prevent it from being pushed to GitHub. It order to run
+this application, the following file must be created in src/main/resources:
+
+sensitive.properties
+```
+azure.activedirectory.tenant-id=your-azure-ad-tenant-id
+azure.activedirectory.client-id=your-azure-ad-registered-application-id
+azure.activedirectory.client-secret=your-azure-ad-client-secret
+```
+
+Once the application is running, it can be accessed via:
+```
+http://localhost:8080
+```
+
+Note that the local application is running over http but the
+backend authentication to Microsoft 365 is running over https.
