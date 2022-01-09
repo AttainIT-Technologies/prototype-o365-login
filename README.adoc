@@ -1,13 +1,13 @@
 :toc:
 
 This README is an overview of an AttainIT Technologies prototype for demonstrating Spring Boot authentication
-integration with Microsoft 365 (formerly known as Office 365).  This prototype is discussed in a series of articles
-on the https://blog.attainittech.com[AttainIT Technologies Blog], with the first article found here
-https://blog.attainittech.com/2022/01/spring-boot-authentication-with-microsoft-365.
+with Microsoft 365 (formerly known as Office 365).  This prototype is discussed in a series of articles
+on the https://blog.attainittech.com[AttainIT Technologies Blog], with the first article found
+https://blog.attainittech.com/2022/01/spring-boot-authentication-with-microsoft-365[here].
 
 == Overview
 
-This prototype demonstrates integrating Spring Security authentication with Microsoft 365 (Azure AD).
+This prototype demonstrates integrating Spring Security with Microsoft 365 (Azure AD).
 It is a simple web appplication (currently one page only) accessed by an authentication against an existing
 Microsoft 365 subscription/domain. Once logged in, the root page will show several properties about the
 authenticated user.
